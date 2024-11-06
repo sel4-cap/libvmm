@@ -74,13 +74,6 @@
             };
         };
 
-        usb@38200000 {
-            status = "disabled";
-        };
-
-        usb-phy@382f0040 {
-            status = "disabled";
-        };
     };
 
     chosen {

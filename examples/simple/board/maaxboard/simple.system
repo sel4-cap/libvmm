@@ -20,6 +20,9 @@
     <memory_region name="syscon" size="0x10000" phys_addr="0x30360000" />
     <memory_region name="clock_controller" size="0x10000" phys_addr="0x30380000" />
 
+    <memory_region name="usb_2_mem" size="0x10000" phys_addr="0x38200000"/>
+    <memory_region name="usb_2_phy_mem" size="0x1000" phys_addr="0x382f0000"/>
+
     <protection_domain name="VMM" priority="254">
         <program_image path="vmm.elf" />
         <map mr="guest_ram" vaddr="0x40000000" perms="rw" setvar_vaddr="guest_ram_vaddr" />
@@ -44,8 +47,12 @@
             <map mr="pinctrl" vaddr="0x30330000" perms="rw" cached="false" />
             <map mr="gpio" vaddr="0x30200000" perms="rw" cached="false" />
             <map mr="irqsteer" vaddr="0x32e2d000" perms="rw" cached="false" />
+
+            <map mr="usb_2_mem" vaddr="0x38200000" cached="false" />
+            <map mr="usb_2_phy_mem" vaddr="0x382f0000" cached="false" />
         </virtual_machine>
         <!-- UART interrupt -->
         <irq irq="58" id="1" />
+        <irq irq="73" id="2" />
     </protection_domain>
 </system>
